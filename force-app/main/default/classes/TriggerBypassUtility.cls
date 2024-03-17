@@ -1,17 +1,18 @@
 public with sharing class TriggerBypassUtility {
     private static Boolean bypassAccountTrigger  = false;
     private static Set<Id> bypassUserIds = new Set<Id>();
+    private static Map<String, Boolean> bypassTriggers = new Map<String, Boolean>();
 
     static {
         loadBypassSettings();
     }
 
-    public static void enableBypassAccountTrigger() {
-        bypassAccountTrigger = true;
+    public static void enableTrigger(String triggerName) {
+        bypassTriggers.put(triggerName, false); 
     }
-    
-    public static void disableBypassAccountTrigger() {
-        bypassAccountTrigger = false;
+
+    public static void disableTrigger(String triggerName) {
+        bypassTriggers.put(triggerName, true); 
     }
 
     public static void enableBypassTriggersForUser(Id userId) {
@@ -22,8 +23,10 @@ public with sharing class TriggerBypassUtility {
         bypassUserIds.add(userId);
     }    
 
-    public static Boolean shouldBypass(Id userId) {
-        return  bypassAccountTrigger || bypassUserIds.contains(userId);
+    public static Boolean shouldBypass(String triggerName, Id userId) {
+        Boolean bypassForUser = bypassUserIds.contains(userId);
+        Boolean bypassForTrigger = bypassTriggers.containsKey(triggerName) && bypassTriggers.get(triggerName);
+        return bypassForUser || bypassForTrigger;
     }
 
     private static void loadBypassSettings() {

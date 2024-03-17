@@ -1,7 +1,7 @@
 @isTest
 private class AccountTriggerHandlerTest {
     @isTest static void testProcessBeforeInsertWithBypass() {
-        TriggerBypassUtility.enableBypassAccountTrigger();
+        TriggerBypassUtility.disableTrigger('AccountTrigger');
 
         Test.startTest();
         Account testAccount = TestDataFactory.createAccount('Test Account', GlobalConsts.ACCOUNT_SLA_GOLD, GlobalConsts.ACCOUNT_PRIORITY_LOW, true);
@@ -10,7 +10,7 @@ private class AccountTriggerHandlerTest {
         Account insertedAccount = [SELECT Id, Name FROM Account WHERE Id = :testAccount.Id];
         System.assertNotEquals(null, insertedAccount);
 
-        TriggerBypassUtility.disableBypassAccountTrigger();
+        TriggerBypassUtility.enableTrigger('AccountTrigger');
     }
 
     @isTest static void testProcessBeforeInsertWithBypassForUser() {

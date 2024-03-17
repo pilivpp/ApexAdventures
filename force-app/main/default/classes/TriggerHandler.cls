@@ -1,6 +1,12 @@
 public virtual class TriggerHandler {
+    private String triggerName;
+
+    public TriggerHandler(String triggerName) {
+        this.triggerName = triggerName;
+    }
+
     public void run() {        
-        if (!TriggerBypassUtility.shouldBypass(UserInfo.getUserId())) {
+        if (!TriggerBypassUtility.shouldBypass(this.triggerName, UserInfo.getUserId())) {
             if (Trigger.isBefore && Trigger.isInsert) {
                 processBeforeInsert();
             }
