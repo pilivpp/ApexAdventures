@@ -1,7 +1,6 @@
 public with sharing class AccountTriggerHandler extends TriggerHandler{
     protected override void processBeforeInsert() {
-        AccountTriggerHelper.validatePriorityBeforeInsert(Trigger.new);
-     
+        AccountTriggerHelper.validatePriorityBeforeInsert(Trigger.new);     
     }
     
     protected override void processBeforeUpdate() {
