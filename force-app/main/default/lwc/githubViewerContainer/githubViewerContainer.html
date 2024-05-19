@@ -1,0 +1,22 @@
+<template>
+    <div class="container slds-p-around_medium">
+        <div class="header">
+            <p>Github Viewer</p>
+        </div>
+        <div class="body">
+            <template lwc:if={listOfCommitsStage}>
+                <c-github-viewer-list-of-commits
+                    ondetailscommit={handleDetailsCommit}></c-github-viewer-list-of-commits>
+            </template>
+            <template lwc:if={commitDetailsStage}>
+                <c-github-viewer-commit-details details-commit={detailsCommit}></c-github-viewer-commit-details>
+            </template>
+        </div>
+        <div class="footer">
+            <lightning-button variant="brand" label="Previous" title="Previous" onclick={handlePreviousButton}
+                class="slds-m-left_x-small" disabled={listOfCommitsStage}></lightning-button>
+            <lightning-button variant="brand" label="Next" title="Next" onclick={handleNextButton}
+                class="slds-m-left_x-small" disabled={commitDetailsStage}></lightning-button>
+        </div>
+    </div>
+</template>
