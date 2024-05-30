@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AccountIndustryBanking</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountIndustryBanking</shortDescription>
+        <value>Banking</value>
+    </labels>
+    <labels>
+        <fullName>AccountPriorityHigh</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountPriorityHigh</shortDescription>
+        <value>High</value>
+    </labels>
+    <labels>
+        <fullName>AccountPriorityLow</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountPriorityLow</shortDescription>
+        <value>Low</value>
+    </labels>
+    <labels>
+        <fullName>AccountSLAGold</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountSLAGold</shortDescription>
+        <value>Gold</value>
+    </labels>
+    <labels>
+        <fullName>AccountSLAGoldPriorityErrorBeforeInsert</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountSLAGoldPriorityErrorBeforeInsert</shortDescription>
+        <value>Cannot create an Account with SLA Gold if the account priority is other than high.</value>
+    </labels>
+    <labels>
+        <fullName>AccountSLAGoldPriorityErrorBeforeUpdate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountSLAGoldPriorityErrorBeforeUpdate</shortDescription>
+        <value>Cannot update an Account with SLA Gold if the account priority is other than high.</value>
+    </labels>
+</CustomLabels>
