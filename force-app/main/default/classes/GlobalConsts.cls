@@ -5,4 +5,5 @@ public class GlobalConsts {
     public static final String ACCOUNT_INDUSTRY_BANKING = System.Label.AccountIndustryBanking;        
     public static final String ACCOUNT_ERROR_MESSAGE_PRIORITY_BEFORE_INSERT = System.Label.AccountSLAGoldPriorityErrorBeforeInsert; 
     public static final String ACCOUNT_ERROR_MESSAGE_PRIORITY_BEFORE_UPDATE = System.Label.AccountSLAGoldPriorityErrorBeforeUpdate;    
+    public static final String ERROR_FETCHING_COMMITS = System.Label.ErrorMessageFetchCommits;
 }

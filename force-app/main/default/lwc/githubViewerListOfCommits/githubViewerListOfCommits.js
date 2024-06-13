@@ -1,5 +1,5 @@
 import { LightningElement, api } from 'lwc';
-import fetchCommits from '@salesforce/apex/GitHubCommitsHandler.fetchCommits';
+import fetchCommits from '@salesforce/apex/GitHubCommitsController.fetchCommits';
 
 export default class CommitsList extends LightningElement {
     commits;
