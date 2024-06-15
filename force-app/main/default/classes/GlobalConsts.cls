@@ -6,4 +6,7 @@ public class GlobalConsts {
     public static final String ACCOUNT_ERROR_MESSAGE_PRIORITY_BEFORE_INSERT = System.Label.AccountSLAGoldPriorityErrorBeforeInsert; 
     public static final String ACCOUNT_ERROR_MESSAGE_PRIORITY_BEFORE_UPDATE = System.Label.AccountSLAGoldPriorityErrorBeforeUpdate;    
     public static final String ERROR_FETCHING_COMMITS = System.Label.ErrorMessageFetchCommits;
+    public static final String ERROR_CREATING_REQUEST = System.Label.ErrorMessageCreatingRequest;
+    public static final String ERROR_PROCESSING_RESPONSE = System.Label.ErrorMessageProcessingResponse;
+    public static final String INVALID_STATUS_CODE = System.Label.InvalidStatusCode;
 }

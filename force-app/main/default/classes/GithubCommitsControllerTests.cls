@@ -1,7 +1,6 @@
 @IsTest
 private class GithubCommitsControllerTests {
     public static final String SUCCESS_MESSAGE = 'Success';
-    public static final String FAILURE_MESSAGE = 'Failure';
     public static final String MESSAGE_KEY = 'message';
     public static final String CONTENT_TYPE_HEADER = 'Content-Type';
     public static final String CONTENT_TYPE_JSON = 'application/json';
@@ -28,8 +27,8 @@ private class GithubCommitsControllerTests {
             Test.startTest();
             String response = GithubCommitsController.fetchCommits();
             Test.stopTest();
-        } catch (AuraHandledException e) {
-            System.assertEquals(FAILURE_MESSAGE, e.getMessage());
+        } catch (AuraHandledException e) {            
+            System.assert(e.getMessage().contains(GlobalConsts.ERROR_FETCHING_COMMITS));
         }
     }
 
@@ -57,8 +56,7 @@ private class GithubCommitsControllerTests {
         public HTTPResponse respond(HTTPRequest req) {
             HttpResponse res = new HttpResponse();
             res.setHeader(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON);
-            JsonWrapperResponse jsonBody = new JsonWrapperResponse(FAILURE_MESSAGE);
-            res.setBody(JSON.serialize(jsonBody));
+            res.setBody(null);
             res.setStatusCode(500);
 
             return res;

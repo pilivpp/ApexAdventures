@@ -9,7 +9,13 @@ public with sharing class GithubCommitsController {
 
             return response;            
         } catch (Exception e) {
-            throw new AuraHandledException(GlobalConsts.ERROR_FETCHING_COMMITS + ': ' + e.getMessage());
+            throw newAuraHandleException(GlobalConsts.ERROR_FETCHING_COMMITS + ' ' + e.getMessage());
         }        
+    }
+
+    private static AuraHandledException newAuraHandleException(String message) {
+        AuraHandledException auraHandleException = new AuraHandledException(message);
+        auraHandleException.setMessage(message);
+        return auraHandleException;
     }
 }
