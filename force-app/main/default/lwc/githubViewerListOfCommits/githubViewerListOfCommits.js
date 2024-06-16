@@ -61,9 +61,8 @@ export default class CommitsList extends LightningElement {
             const radioInput = this.template.querySelector('lightning-radio-group');
             radioInput.reportValidity();
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     pushDetailsOfCommit() {

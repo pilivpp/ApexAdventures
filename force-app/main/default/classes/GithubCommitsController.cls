@@ -13,9 +13,29 @@ public with sharing class GithubCommitsController {
         }        
     }
 
+    @AuraEnabled
+    public static String createCase(String commitDataJson){
+        try {
+            CaseCommitWrapper commitData = (caseCommitWrapper) JSON.deserialize(commitDataJson, CaseCommitWrapper.class);
+            Case newCaseWithCommit = new Case(
+                Commit_SHA__c = commitData.sha
+            );
+
+            insert newCaseWithCommit;
+            return newCaseWithCommit.Id;
+        } catch (Exception e) {
+            throw newAuraHandleException(GlobalConsts.ERROR_CREATING_CASE + ' ' + e.getMessage());
+        }
+    }
+
     private static AuraHandledException newAuraHandleException(String message) {
         AuraHandledException auraHandleException = new AuraHandledException(message);
         auraHandleException.setMessage(message);
         return auraHandleException;
+    }
+
+    private class CaseCommitWrapper {
+        @AuraEnabled
+        public String sha;
     }
 }

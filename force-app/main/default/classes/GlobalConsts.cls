@@ -9,4 +9,5 @@ public class GlobalConsts {
     public static final String ERROR_CREATING_REQUEST = System.Label.ErrorMessageCreatingRequest;
     public static final String ERROR_PROCESSING_RESPONSE = System.Label.ErrorMessageProcessingResponse;
     public static final String INVALID_STATUS_CODE = System.Label.InvalidStatusCode;
+    public static final String ERROR_CREATING_CASE = System.Label.Error_during_creating_case;
 }

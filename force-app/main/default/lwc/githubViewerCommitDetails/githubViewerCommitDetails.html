@@ -1,11 +1,10 @@
 <template>
     <div class="commit-container">
-        <p class="commit-date">Created Date: <span>{detailsCommit.createdDate}</span></p>
-        <p class="commit-author">Author: <span>{detailsCommit.author}</span></p>
-        <p class="commit-email">Author email: <span>{detailsCommit.authorEmail}</span></p>
-        <p class="commit-message">Message: <span>{detailsCommit.message}</span></p>
-        <p class="commit-sha">Commit SHA: <span>{detailsCommit.commitId}</span></p>
-        <p class="commit-url">Commit URL: <a href={detailsCommit.commitUrl}
-                target="_blank">{detailsCommit.commitUrl}</a></p>
+        <p>Created Date: <span>{detailsCommit.createdDate}</span></p>
+        <p>Author: <span>{detailsCommit.author}</span></p>
+        <p>Author email: <span>{detailsCommit.authorEmail}</span></p>
+        <p>Message: <span>{detailsCommit.message}</span></p>
+        <p>Commit SHA: <span>{detailsCommit.commitId}</span></p>
+        <p>Commit URL: <a href={detailsCommit.commitUrl} target="_blank">{detailsCommit.commitUrl}</a></p>
     </div>
 </template>

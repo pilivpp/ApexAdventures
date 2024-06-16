@@ -11,12 +11,15 @@
             <template lwc:if={commitDetailsStage}>
                 <c-github-viewer-commit-details details-commit={detailsCommit}></c-github-viewer-commit-details>
             </template>
+            <template lwc:if={caseStage}>
+                <c-github-create-case details-commit={detailsCommit}> </c-github-create-case>
+            </template>
         </div>
         <div class="footer">
             <lightning-button variant="brand" label="Previous" title="Previous" onclick={handlePreviousButton}
                 class="slds-m-left_x-small" disabled={listOfCommitsStage}></lightning-button>
             <lightning-button variant="brand" label="Next" title="Next" onclick={handleNextButton}
-                class="slds-m-left_x-small" disabled={commitDetailsStage}></lightning-button>
+                class="slds-m-left_x-small" disabled={caseStage}></lightning-button>
         </div>
     </div>
 </template>
