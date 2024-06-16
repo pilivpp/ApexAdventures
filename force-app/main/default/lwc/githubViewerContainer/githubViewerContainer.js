@@ -1,4 +1,5 @@
 import { LightningElement } from 'lwc';
+import { CloseActionScreenEvent } from 'lightning/actions';
 
 const STAGES = {
     LIST_OF_COMMITS_STAGE_STAGE: 'listOfCommitsStage',
@@ -42,5 +43,9 @@ export default class GithubViewerContainer extends LightningElement {
 
     handleDetailsCommit(event) {
         this.detailsCommit = event.detail;
+    }
+
+    handleCloseModal() {
+        this.dispatchEvent(new CloseActionScreenEvent());
     }
 }

@@ -16,9 +16,10 @@ export default class GithubCreateCase extends LightningElement {
                     new ShowToastEvent({
                         title: 'Success',
                         message: `Case created successfully with Id: ${caseId}`,
-                        vaiant: 'success'
+                        variant: 'success',
                     })
                 );
+                this.closeModal();
             })
             .catch(error => {
                 this.dispatchEvent(
@@ -29,5 +30,10 @@ export default class GithubCreateCase extends LightningElement {
                     })
                 );
             });
+    }
+
+    closeModal() {
+        const closeEvent = new CustomEvent('closemodal');
+        this.dispatchEvent(closeEvent);
     }
 }
