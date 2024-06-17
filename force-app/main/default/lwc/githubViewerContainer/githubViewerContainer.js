@@ -3,7 +3,7 @@ import { CloseActionScreenEvent } from 'lightning/actions';
 import labels from './customLabels';
 
 const STAGES = {
-    LIST_OF_COMMITS_STAGE_STAGE: 'listOfCommitsStage',
+    LIST_OF_COMMITS_STAGE: 'listOfCommitsStage',
     COMMIT_DETAILS_STAGE: 'commitDetailsStage',
     CASE_STAGE: 'caseStage',
 };
@@ -13,15 +13,15 @@ export default class GithubViewerContainer extends LightningElement {
     detailsCommit;
     labels = labels;
 
-    get listOfCommitsStage() {
+    get isListOfCommitsStage() {
         return this.currentStage === STAGES.LIST_OF_COMMITS_STAGE;
     }
 
-    get commitDetailsStage() {
+    get isCommitDetailsStage() {
         return this.currentStage === STAGES.COMMIT_DETAILS_STAGE;
     }
 
-    get caseStage() {
+    get isCaseStage() {
         return this.currentStage === STAGES.CASE_STAGE;
     }
 

@@ -4,14 +4,14 @@
             <p>{labels.githubViewer}</p>
         </div>
         <div class="body">
-            <template lwc:if={listOfCommitsStage}>
+            <template lwc:if={isListOfCommitsStage}>
                 <c-github-viewer-list-of-commits
                     ondetailscommit={handleDetailsCommit}></c-github-viewer-list-of-commits>
             </template>
-            <template lwc:if={commitDetailsStage}>
+            <template lwc:if={isCommitDetailsStage}>
                 <c-github-viewer-commit-details details-commit={detailsCommit}></c-github-viewer-commit-details>
             </template>
-            <template lwc:if={caseStage}>
+            <template lwc:if={isCaseStage}>
                 <c-github-create-case details-commit={detailsCommit} onclosemodal={handleCloseModal}>
                 </c-github-create-case>
             </template>
@@ -19,9 +19,9 @@
         <div class="footer">
             <lightning-button variant="brand" label={labels.previous} title={labels.previous}
                 onclick={handlePreviousButton} class="slds-m-left_x-small"
-                disabled={listOfCommitsStage}></lightning-button>
+                disabled={isListOfCommitsStage}></lightning-button>
             <lightning-button variant="brand" label={labels.next} title={labels.next} onclick={handleNextButton}
-                class="slds-m-left_x-small" disabled={caseStage}></lightning-button>
+                class="slds-m-left_x-small" disabled={isCaseStage}></lightning-button>
         </div>
     </div>
 </template>
