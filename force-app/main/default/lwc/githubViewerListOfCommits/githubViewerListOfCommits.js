@@ -1,11 +1,13 @@
 import { LightningElement, api } from 'lwc';
 import fetchCommits from '@salesforce/apex/GitHubCommitsController.fetchCommits';
+import labels from './customLabels';
 
 export default class CommitsList extends LightningElement {
     commits;
     selectOptions = [];
     commitsData = [];
     choosenCommit;
+    labels = labels;
 
     connectedCallback() {
         this.getCommits();

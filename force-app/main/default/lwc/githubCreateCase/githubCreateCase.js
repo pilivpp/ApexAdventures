@@ -1,9 +1,13 @@
 import { LightningElement, api } from 'lwc';
-import createCase from '@salesforce/apex/GithubCommitsController.createCase';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import createCase from '@salesforce/apex/GithubCommitsController.createCase';
+import labels from './customLabels';
 
 export default class GithubCreateCase extends LightningElement {
     @api detailsCommit;
+    labels = labels;
+    success = 'success';
+    error = 'error';
 
     handleCreateCase() {
         const commitData = {
@@ -14,9 +18,9 @@ export default class GithubCreateCase extends LightningElement {
             .then(caseId => {
                 this.dispatchEvent(
                     new ShowToastEvent({
-                        title: 'Success',
-                        message: `Case created successfully with Id: ${caseId}`,
-                        variant: 'success',
+                        title: `${this.labels.success}`,
+                        message: `${this.labels.caseCreatedSuccessfully} ${caseId}`,
+                        variant: this.success,
                     })
                 );
                 this.closeModal();
@@ -24,9 +28,9 @@ export default class GithubCreateCase extends LightningElement {
             .catch(error => {
                 this.dispatchEvent(
                     new ShowToastEvent({
-                        title: 'Error Creating case',
+                        title: `${this.labels.error}`,
                         message: error.body.message,
-                        variant: 'error'
+                        variant: this.error
                     })
                 );
             });

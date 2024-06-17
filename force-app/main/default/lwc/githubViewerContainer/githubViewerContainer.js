@@ -1,5 +1,6 @@
 import { LightningElement } from 'lwc';
 import { CloseActionScreenEvent } from 'lightning/actions';
+import labels from './customLabels';
 
 const STAGES = {
     LIST_OF_COMMITS_STAGE_STAGE: 'listOfCommitsStage',
@@ -10,6 +11,7 @@ const STAGES = {
 export default class GithubViewerContainer extends LightningElement {
     currentStage = STAGES.LIST_OF_COMMITS_STAGE;
     detailsCommit;
+    labels = labels;
 
     get listOfCommitsStage() {
         return this.currentStage === STAGES.LIST_OF_COMMITS_STAGE;

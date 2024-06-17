@@ -1,7 +1,7 @@
 <template>
     <div class="container slds-p-around_medium">
         <div class="header">
-            <p>Github Viewer</p>
+            <p>{labels.githubViewer}</p>
         </div>
         <div class="body">
             <template lwc:if={listOfCommitsStage}>
@@ -17,9 +17,10 @@
             </template>
         </div>
         <div class="footer">
-            <lightning-button variant="brand" label="Previous" title="Previous" onclick={handlePreviousButton}
-                class="slds-m-left_x-small" disabled={listOfCommitsStage}></lightning-button>
-            <lightning-button variant="brand" label="Next" title="Next" onclick={handleNextButton}
+            <lightning-button variant="brand" label={labels.previous} title={labels.previous}
+                onclick={handlePreviousButton} class="slds-m-left_x-small"
+                disabled={listOfCommitsStage}></lightning-button>
+            <lightning-button variant="brand" label={labels.next} title={labels.next} onclick={handleNextButton}
                 class="slds-m-left_x-small" disabled={caseStage}></lightning-button>
         </div>
     </div>

@@ -1,9 +1,8 @@
 <template>
     <template if:true={commits}>
         <div class="commits-container">
-            <lightning-radio-group name="radioGroup" label="List of Commits" options={selectOptions} value={value}
-                type="radio" onchange={handleChangeCommit} required
-                message-when-value-missing="First, choose a commit to move to the next page.">
+            <lightning-radio-group name="radioGroup" label={labels.listOfCommits} options={selectOptions} value={value}
+                type="radio" onchange={handleChangeCommit} required message-when-value-missing={labels.chooseCommit}>
             </lightning-radio-group>
         </div>
     </template>
