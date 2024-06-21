@@ -1,0 +1,7 @@
+<template>
+    <div class="commit-container">
+        <p>{labels.commitSha} <span>{detailsCommit.commitId}</span></p>
+        <p>{labels.message} <span>{detailsCommit.message}</span></p>
+        <lightning-button label={labels.createCase} onclick={handleCreateCase}></lightning-button>
+    </div>
+</template>
