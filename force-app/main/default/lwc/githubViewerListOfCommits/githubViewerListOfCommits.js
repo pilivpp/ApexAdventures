@@ -17,33 +17,39 @@ export default class CommitsList extends LightningElement {
     async getCommits() {
         try {
             const response = await fetchCommits();
-            this.commits = JSON.parse(response);
-            this.commits.forEach(commit => {
-                const option = {
-                    label: commit.commit.message,
-                    value: commit.sha
-                };
-                this.selectOptions.push(option);
-            });
+            const commits = JSON.parse(response);
+            this.commits = commits.map(this.commitWrapper);
+            this.selectOptions = this.commits.map(commit => ({
+                label: commit.message,
+                value: commit.sha
+            }));
             await this.buildCommitsInDetails();
         } catch (error) {
             console.log(error);
         }
     }
 
+    commitWrapper(commit) {
+        return {
+            message: commit.commit.message,
+            author: commit.commit.author.name,
+            authorEmail: commit.commit.author.email,
+            createdDate: commit.commit.author.date,
+            sha: commit.sha,
+            url: commit.url
+        };
+    }
+
     async buildCommitsInDetails() {
         try {
-            this.commits.forEach(commit => {
-                const commitData = {
-                    message: commit.commit.message,
-                    author: commit.commit.author.name,
-                    authorEmail: commit.commit.author.email,
-                    createdDate: commit.commit.author.date,
-                    commitId: commit.sha,
-                    commitUrl: commit.url
-                };
-                this.commitsData.push(commitData);
-            });
+            this.commitsData = this.commits.map(commit => ({
+                message: commit.message,
+                author: commit.author,
+                authorEmail: commit.authorEmail,
+                createdDate: commit.createdDate,
+                commitId: commit.sha,
+                commitUrl: commit.url
+            }));
         } catch (error) {
             console.log(error);
         }
@@ -71,7 +77,7 @@ export default class CommitsList extends LightningElement {
     pushDetailsOfCommit() {
         const customEvent = new CustomEvent(this.detailCommitEvent, {
             detail: this.choosenCommit ?? {}
-        })
+        });
         this.dispatchEvent(customEvent);
     }
 }
