@@ -8,10 +8,11 @@ export default class GithubCreateCase extends LightningElement {
     labels = labels;
     success = 'success';
     error = 'error';
+    closeModalEvent = 'closemodal'
 
     handleCreateCase() {
         const commitData = {
-            sha: this.detailsCommit.sha
+            sha: this.detailsCommit.commitId
         };
 
         createCase({ commitDataJson: JSON.stringify(commitData) })
@@ -37,7 +38,7 @@ export default class GithubCreateCase extends LightningElement {
     }
 
     closeModal() {
-        const closeEvent = new CustomEvent('closemodal');
+        const closeEvent = new CustomEvent(this.closeModalEvent);
         this.dispatchEvent(closeEvent);
     }
 }

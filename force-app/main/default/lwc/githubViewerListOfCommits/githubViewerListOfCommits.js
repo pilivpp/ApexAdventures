@@ -8,6 +8,7 @@ export default class CommitsList extends LightningElement {
     commitsData = [];
     choosenCommit;
     labels = labels;
+    detailCommitEvent = 'detailscommit';
 
     connectedCallback() {
         this.getCommits();
@@ -68,7 +69,7 @@ export default class CommitsList extends LightningElement {
     }
 
     pushDetailsOfCommit() {
-        const customEvent = new CustomEvent('detailscommit', {
+        const customEvent = new CustomEvent(this.detailCommitEvent, {
             detail: this.choosenCommit ?? {}
         })
         this.dispatchEvent(customEvent);
