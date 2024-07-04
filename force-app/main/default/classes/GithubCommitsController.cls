@@ -30,7 +30,8 @@ public with sharing class GithubCommitsController {
             
             Case newCaseWithCommit = new Case(
                 Commit_SHA__c = commitData.sha,
-                RecordTypeId = commitSupportRecordTypeId
+                RecordTypeId = commitSupportRecordTypeId,
+                Priority = GlobalConsts.CASE_PRIORITY_HIGH
             );
 
             insert newCaseWithCommit;

@@ -12,4 +12,5 @@ public class GlobalConsts {
     public static final String ERROR_CREATING_CASE = System.Label.ErrorDuringCreatingCase;
     public static final String FETCH_COMMITS_ERROR = System.Label.FetchCommitsError;    
     public static final String CREATE_COMMITS_ERROR = System.Label.CreateCaseError;        
+    public static final String CASE_PRIORITY_HIGH = System.Label.CasePriorityHigh;            
 }
