@@ -45,4 +45,4 @@ $RECYCLE.BIN/
 **/venv/
 
 # Local Development
-.scripts
+run/
